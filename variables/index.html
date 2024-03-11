@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="./styles.css">
+
+<div id="container">
+  <div id="el"></div>
+  <div id="el" class="el--md"></div>
+  <div id="el" class="el--lg"></div>
+</div>
+
+
+<script>
+  const TOTAL_CHROMATIC_CIRCLE = 360
+
+  const $els = document.querySelectorAll('#el')
+
+  function colorChangeInterval(element) {
+    return setInterval(() => {
+      const hue = Math.floor(Math.random() * TOTAL_CHROMATIC_CIRCLE).toFixed(1)
+      element.style.setProperty('--_hue', hue)
+    }, 1000)
+  }
+
+  for (const $el of $els) {
+    let interval = colorChangeInterval($el)
+
+    $el.onmouseover = (event) => {
+      clearInterval(interval)
+    }
+
+    $el.onmouseout = () => {
+      interval = colorChangeInterval($el)
+    }
+  }
+</script>
+
+<noscript>
+  Please enable JavaScript in your browser
+</noscript>

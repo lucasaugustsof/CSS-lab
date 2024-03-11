@@ -1,0 +1,43 @@
+body {
+  height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  overflow-y: hidden;
+}
+
+#container {
+  --el-unit: 8rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+
+  .el--md {
+    --el-unit: 12rem;
+  }
+
+  .el--lg {
+    --el-unit: 16rem;
+  }
+}
+
+#el {
+  --_hue: 0;
+  --_saturation: 80%;
+  --_lightness: 48%;
+
+  width: var(--el-unit);
+  height: var(--el-unit);
+
+  border-radius: 12px;
+
+  transition-property: background-color;
+  transition-timing-function: linear;
+  transition-duration: 0.2s;
+
+  background-color: hsl(var(--_hue), var(--_saturation), var(--_lightness));
+}
